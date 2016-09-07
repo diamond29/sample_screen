@@ -12,7 +12,7 @@ module DeliveryPairing
       end
 
       def to_json(*json_generator_args)
-        to_hash.to_json(*json_generator_args)
+        to_hash.to_json(json_generator_args)
       end
     end
   end

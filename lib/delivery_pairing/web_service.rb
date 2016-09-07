@@ -11,9 +11,13 @@ module DeliveryPairing
      body = JSON.parse(request.body.read)
 
      # the pair map will always give empty orders right now
-     driver_order_pairings = body['drivers'].map { |driver| [driver['id'], []] }
+     pairing_hash = {}
+     body['drivers'].each do |driver|
+       driver_id = driver['id']
+       pairing_hash[driver_id] = []
+     end
 
-     Hash[driver_order_pairings].to_json
+     pairing_hash.to_json
    end
   end
 end
